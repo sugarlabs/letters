@@ -14,23 +14,23 @@ import random
 
 import utils
 
-app='Letters'
-ver='1'
-ver='21'
-ver='22'
+app = 'Letters'
+ver = '1'
+ver = '21'
+ver = '22'
 # error message does not persist where it shouldn't
-ver='23'
+ver = '23'
 # circle key toggles help
 
-UP=(264, 273)
-DOWN=(258, 274)
-LEFT=(260, 276)
-RIGHT=(262, 275)
-CROSS=(259, pygame.K_2)
-CIRCLE=(265, pygame.K_3)
-SQUARE=(263, 32)
-TICK=(257, 13)
-NUMBERS={pygame.K_1: 1, pygame.K_2: 2, pygame.K_3: 3, pygame.K_4: 4,
+UP = (264, 273)
+DOWN = (258, 274)
+LEFT = (260, 276)
+RIGHT = (262, 275)
+CROSS = (259, pygame.K_2)
+CIRCLE = (265, pygame.K_3)
+SQUARE = (263, 32)
+TICK = (257, 13)
+NUMBERS = {pygame.K_1: 1, pygame.K_2: 2, pygame.K_3: 3, pygame.K_4: 4,
          pygame.K_5: 5, pygame.K_6: 6, pygame.K_7: 7, pygame.K_8: 8,
          pygame.K_9: 9, pygame.K_0: 0}
 
@@ -49,7 +49,7 @@ def init():  # called by run()
     pygame.display.flip()
     w, h = screen.get_size()
     if float(w) / float(h) > 1.5:  # widescreen
-        offset = (w - 4 * h / 3) / 2 # we assume 4:3 - centre on widescreen
+        offset = (w - 4 * h / 3) / 2  # we assume 4:3 - centre on widescreen
     else:
         h = int(.75 * w)  # allow for toolbar - works to 4:3
         offset = 0
@@ -65,7 +65,7 @@ def init():  # called by run()
     pos = pygame.mouse.get_pos()
     pointer = utils.load_image('pointer.png', True)
     pygame.mouse.set_visible(False)
-    
+
     # this activity only
     global score, best, state, ms, message_cxy, bgd, score_cxy, best_cxy
     global help_img, help_on, help_cxy
