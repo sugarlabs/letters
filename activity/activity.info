@@ -1,0 +1,9 @@
+[Activity]
+name = Letters
+activity_version = 24.2
+host_version = 1
+bundle_id = mulawa.Letters
+icon = activity
+show_launcher = yes
+exec = sugar-activity activity.PeterActivity
+summary = "spell words from a group of randomly selected letters"

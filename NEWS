@@ -1,0 +1,14 @@
+24.1
+
+* More pep8 cleanup
+* Fix rotation issues
+* Move score to toolbar
+
+24
+
+* Turn off sharing
+* Use monochrome icons
+* pep8 cleanup
+* Fix problems with launching outside of Sugar
+* Aggressive Sugar stylizing
+* Handle screen rotation
