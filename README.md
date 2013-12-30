@@ -1,4 +1,4 @@
 letters
 =======
 
-Clone of Peter Hewitt's letters game
+Port to gtk3 of Letters activity

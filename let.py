@@ -53,7 +53,8 @@ class Let:
                     l = lang.consonant()
                 elif self.c == 4:
                     l = lang.vowel()
-                else: l = lang.letter()
+                else:
+                    l = lang.letter()
                 if l in 'aeiou':
                     self.v += 1
                 else:
@@ -80,7 +81,7 @@ class Let:
             g.screen.blit(self.imgs[ind], (x, y))
             x += self.w
 
-    def click(self):        
+    def click(self):
         x = self.x0
         y = self.y0
         ind1 = 0
@@ -118,7 +119,8 @@ class Let:
         self.set_mouse()
 
     def right(self):
-        if len(self.ans) == 8: return
+        if len(self.ans) == 8:
+            return
         if self.ind is None:
             self.reset_mouse()
             return
@@ -135,7 +137,8 @@ class Let:
         self.x += self.w
 
     def left(self):
-        if len(self.ans) == 8: return
+        if len(self.ans) == 8:
+            return
         if self.ind is None:
             self.reset_mouse()
             return
@@ -162,7 +165,7 @@ class Let:
             ind += 1
         ind = 0
         for l in self.ans:
-            if l == letter: 
+            if l == letter:
                 self.put_back(l)
                 self.ans = self.ans[:ind] + self.ans[ind + 1:]
                 g.state = 2
@@ -173,7 +176,7 @@ class Let:
         return lang.check_word(self.ans)
 
     def back(self):
-        if len(self.ans)>0:
+        if len(self.ans) > 0:
             ln = len(self.ans)
             l = self.ans[ln - 1:]
             self.ans = self.ans[:ln - 1]
@@ -187,8 +190,3 @@ class Let:
                     self.taken[ind] = False
                     return
             ind += 1
-
-                             
-                    
-            
-        

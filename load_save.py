@@ -1,7 +1,8 @@
 #load_save.py
 import g
 
-loaded=[] # list of strings
+loaded = []  # list of strings
+
 
 def load(f):
     global loaded
@@ -11,14 +12,13 @@ def load(f):
     except:
         pass
 
+
 def save(f):
-    f.write(str(g.best)+'\n')
+    f.write(str(g.best) + '\n')
+
 
 # note need for rstrip() on strings
 def retrieve():
     global loaded
-    if len(loaded)>0:
-        g.best=int(loaded[0])
-
-
-    
+    if len(loaded) > 0:
+        g.best = int(loaded[0])
