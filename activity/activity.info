@@ -7,3 +7,4 @@ icon = activity
 show_launcher = yes
 exec = sugar-activity activity.PeterActivity
 summary = "spell words from a group of randomly selected letters"
+category = game language
