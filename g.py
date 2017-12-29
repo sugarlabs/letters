@@ -31,8 +31,8 @@ CIRCLE = (265, pygame.K_3)
 SQUARE = (263, 32)
 TICK = (257, 13)
 NUMBERS = {pygame.K_1: 1, pygame.K_2: 2, pygame.K_3: 3, pygame.K_4: 4,
-         pygame.K_5: 5, pygame.K_6: 6, pygame.K_7: 7, pygame.K_8: 8,
-         pygame.K_9: 9, pygame.K_0: 0}
+           pygame.K_5: 5, pygame.K_6: 6, pygame.K_7: 7, pygame.K_8: 8,
+           pygame.K_9: 9, pygame.K_0: 0}
 
 
 def init():  # called by run()

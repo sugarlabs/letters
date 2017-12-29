@@ -67,7 +67,6 @@ class Letters:
                 else:
                     buttons.on('tick')
         buttons.draw()
-        #utils.display_number(g.state,(10,10),g.font1)
         if g.state == 3:
             ln = len(self.let.ans)
             if ln == 2:
@@ -166,7 +165,6 @@ class Letters:
             if len(self.let.ans) > 1:
                 self.do_tick()
             return
-        #if key==pygame.K_4: self.let.given='clangers'; return###
         if g.state in (2, 4):
             letter = letter_keys.which(key)
             if letter is not None:

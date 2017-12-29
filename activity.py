@@ -112,7 +112,7 @@ class PeterActivity(activity.Activity):
         self.game.set_buttons(cyan, tick, back)
 
         Gdk.Screen.get_default().connect('size-changed',
-                                             self.__configure_cb)
+                                         self.__configure_cb)
 
         # Start the game running.
         self._pygamecanvas.run_pygame(self.game.run)
