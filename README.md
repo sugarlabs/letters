@@ -7,15 +7,16 @@ Inspired by the TV show, "Letters and Numbers".
 
 Players are given 8 letters and have to make as long an English word as possible.
 
-The game has a dictionary of 42,566 English words, with some editorial control.
+Letters has a dictionary of 42,566 English words, with some editorial control.
 
 How to use?
 ===========
 
-Letters is part of the Sugar desktop.  Please refer to;
+Letters is not part of the Sugar desktop, but can be added.  Please refer to;
 
 * [How to Get Sugar on sugarlabs.org](https://sugarlabs.org/),
-* [How to use Sugar](https://help.sugarlabs.org/).
+* [How to use Sugar](https://help.sugarlabs.org/), and;
+* [Download Letters using Browse](https://activities.sugarlabs.org/), search for `Letters`, then download.
 
 Mouseless play is possible:
 
