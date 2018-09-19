@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-12 21:13-0400\n"
+"POT-Creation-Date: 2018-09-19 12:59+1000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,43 +21,42 @@ msgstr ""
 msgid "Letters"
 msgstr ""
 
-#: Letters.py:74
-#, python-format
-msgid "Your word scores %s point."
+#: activity/activity.info:3
+msgid "\"spell words from a group of randomly selected letters\""
 msgstr ""
 
-#: Letters.py:76
+#: Letters.py:73
+msgid "Your word scores one point."
+msgstr ""
+
+#: Letters.py:75
 #, python-format
 msgid "Your word scores %s points."
 msgstr ""
 
-#: Letters.py:80
+#: Letters.py:79
 #, python-format
 msgid "Sorry, %s is not in my word list"
 msgstr ""
 
-#: Letters.py:84
+#: Letters.py:88
 #, python-format
 msgid "Total: %s"
 msgstr ""
 
-#: Letters.py:88
+#: Letters.py:92
 #, python-format
 msgid "Best: %s"
 msgstr ""
 
-#: activity.py:57
+#: activity.py:59
 msgid "Play"
 msgstr ""
 
-#: activity.py:63
+#: activity.py:65
 msgid "Accept"
 msgstr ""
 
-#: activity.py:69
+#: activity.py:71
 msgid "Back"
-msgstr ""
-
-#: activity.py:94
-msgid "Stop"
 msgstr ""
