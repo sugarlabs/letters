@@ -62,7 +62,7 @@ class Let:
                 self.given += l
                 g.ms = pygame.time.get_ticks()
             else:
-                g.state = 2
+                g.state = g.STATE_PLAY
 
     def draw(self):
         x = self.x0
@@ -100,7 +100,7 @@ class Let:
             if utils.mouse_in(x, y, x + self.w, y + self.h):
                 self.put_back(l)
                 self.ans = self.ans[:ind1] + self.ans[ind1 + 1:]
-                g.state = 2
+                g.state = g.STATE_PLAY
                 return True
             x += self.w
             ind1 += 1
@@ -168,7 +168,7 @@ class Let:
             if l == letter:
                 self.put_back(l)
                 self.ans = self.ans[:ind] + self.ans[ind + 1:]
-                g.state = 2
+                g.state = g.STATE_PLAY
                 return
             ind += 1
 

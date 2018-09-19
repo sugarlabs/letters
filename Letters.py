@@ -55,7 +55,7 @@ class Letters:
             self.tick_button.set_sensitive(False)
         else:
             buttons.off(['back', 'tick'])
-        if g.state in (2, 4):
+        if g.state in (g.STATE_PLAY, g.STATE_WRONG):
             if len(self.let.ans) > 0:
                 if self.sugar:
                     self.back_button.set_sensitive(True)
@@ -67,7 +67,7 @@ class Letters:
                 else:
                     buttons.on('tick')
         buttons.draw()
-        if g.state == 3:
+        if g.state == g.STATE_RIGHT:
             ln = len(self.let.ans)
             if ln == 2:
                 s = _('Your word scores one point.')
@@ -75,7 +75,7 @@ class Letters:
                 s = _('Your word scores %s points.' % (str(2 ** (ln - 2))))
             utils.text_blit(g.screen, s, g.font2, g.message_cxy,
                             self.colors[0], False)
-        if g.state == 4:
+        if g.state == g.STATE_WRONG:
             s = _('Sorry, %s is not in my word list' % self.let.ans)
             utils.text_blit(g.screen, s, g.font2, g.message_cxy,
                             self.colors[0], False)
@@ -96,9 +96,9 @@ class Letters:
             utils.centre_blit(g.screen, g.help_img, g.help_cxy)
 
     def do_click(self):
-        if g.state in (2, 4):
+        if g.state in (g.STATE_PLAY, g.STATE_WRONG):
             if self.let.click():
-                g.state = 2
+                g.state = g.STATE_PLAY
 
     def do_button(self, bu):
         if bu == 'new':
@@ -106,11 +106,11 @@ class Letters:
                 if g.score > 0:
                     g.score -= 1
             self.let.setup()
-            g.state = 1
+            g.state = g.STATE_SETUP
             return
         if bu == 'back':
             self.let.reset()
-            g.state = 2
+            g.state = g.STATE_PLAY
             return
         if bu == 'tick':
             self.do_tick()
@@ -121,15 +121,15 @@ class Letters:
                 buttons.off('help')
 
     def do_tick(self):
-        if g.state == 2:
+        if g.state == g.STATE_PLAY:
             g.redraw = True
             if self.let.check():
-                g.state = 3
+                g.state = g.STATE_RIGHT
                 g.score += (2 ** (len(self.let.ans) - 2))
                 if g.score > g.best:
                     g.best = g.score
             else:
-                g.state = 4
+                g.state = g.STATE_WRONG
 
     def do_key(self, key):
         if key == pygame.K_1:
@@ -153,7 +153,7 @@ class Letters:
             self.do_button('new')
             return
         if key in g.UP:
-            if g.state in (2, 4):
+            if g.state in (g.STATE_PLAY, g.STATE_WRONG):
                 self.do_button('back')
             return
         if key in g.LEFT:
@@ -166,13 +166,13 @@ class Letters:
             if len(self.let.ans) > 1:
                 self.do_tick()
             return
-        if g.state in (2, 4):
+        if g.state in (g.STATE_PLAY, g.STATE_WRONG):
             letter = letter_keys.which(key)
             if letter is not None:
                 self.let.key(letter)
                 return
             if key == pygame.K_BACKSPACE:
-                g.state = 2
+                g.state = g.STATE_PLAY
                 self.let.back()
                 return
 
@@ -254,13 +254,13 @@ class Letters:
             if not going:
                 break
 
-            if g.state == 1:
+            if g.state == g.STATE_SETUP:
                 self.let.choose()
             if g.redraw:
                 self.display()
                 if g.version_display:
                     utils.version_display()
-                if g.state != 1:
+                if g.state != g.STATE_SETUP:
                     g.screen.blit(g.pointer, g.pos)
                 pygame.display.flip()
                 g.redraw = False

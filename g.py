@@ -33,6 +33,10 @@ TICK = (257, 13)
 NUMBERS = {pygame.K_1: 1, pygame.K_2: 2, pygame.K_3: 3, pygame.K_4: 4,
            pygame.K_5: 5, pygame.K_6: 6, pygame.K_7: 7, pygame.K_8: 8,
            pygame.K_9: 9, pygame.K_0: 0}
+STATE_SETUP = 1
+STATE_PLAY = 2
+STATE_RIGHT = 3
+STATE_WRONG = 4
 
 
 def init():  # called by run()
@@ -72,10 +76,6 @@ def init():  # called by run()
     score = 0
     best = 0
     state = 1
-    # 1 displaying given
-    # 2 accepting input
-    # 3 right
-    # 4 wrong
     ms = pygame.time.get_ticks()
     message_cxy = None  # set in let.py
     bgd = utils.load_image('bgd.png', False)
