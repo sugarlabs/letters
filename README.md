@@ -18,16 +18,14 @@ Letters is not part of the Sugar desktop, but can be added.  Please refer to;
 * [How to use Sugar](https://help.sugarlabs.org/), and;
 * [Download Letters using Browse](https://activities.sugarlabs.org/), search for `Letters`, then download.
 
-Mouseless play is possible:
+Click on a letter to choose it, or reject it.  Or use the keyboard;
 
-* left & right arrows to move the pointer,
-* X = left click to choose a letter,
-* O = right click for the Help Screen,
-* tick = try my word,
-* up arrow to move all the letters back to the top,
-* square = deal new letters.
-
-The A to Z keys may also be used.
+* a letter key will choose that letter if possible, or if not reject that letter,
+* enter, or tick; try my word,
+* space, or square; make new letters.
+* delete, or backspace; reject latest letter,
+* up arrow; reject all the letters,
+* left or right arrows; move the mouse pointer,
 
 How to upgrade?
 ===============
