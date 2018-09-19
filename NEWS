@@ -7,6 +7,15 @@
 
 * GTK3 port (Ignacio Rodriguez)
 * Fix to preview
+* More pep8 cleanup
+* Fix rotation issues
+* Move score to toolbar
+* Turn off sharing
+* Use monochrome icons
+* pep8 cleanup
+* Fix problems with launching outside of Sugar
+* Aggressive Sugar stylizing
+* Handle screen rotation
 
 24.1
 
