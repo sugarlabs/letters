@@ -122,6 +122,7 @@ class Letters:
 
     def do_tick(self):
         if g.state == 2:
+            g.redraw = True
             if self.let.check():
                 g.state = 3
                 g.score += (2 ** (len(self.let.ans) - 2))
@@ -193,16 +194,6 @@ class Letters:
         buttons.off('back')
         buttons.Button('help', (cx, cy))
 
-    def flush_queue(self):
-        flushing = True
-        while flushing:
-            flushing = False
-            if self.journal:
-                while Gtk.events_pending():
-                    Gtk.main_iteration()
-            for event in pygame.event.get():
-                flushing = True
-
     def run(self, restore=False):
         g.init()
         if not self.journal:
@@ -213,21 +204,25 @@ class Letters:
         self.buttons_setup()
         if self.canvas is not None:
             self.canvas.grab_focus()
-        ctrl = False
         pygame.key.set_repeat(600, 120)
-        key_ms = pygame.time.get_ticks()
         going = True
         while going:
             if self.journal:
                 # Pump GTK messages.
                 while Gtk.events_pending():
                     Gtk.main_iteration()
+                if not going:
+                    break
+
             # Pump PyGame messages.
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     if not self.journal:
                         utils.save()
-                    going = False
+                    return
+                elif event.type == pygame.VIDEORESIZE:
+                    pygame.display.set_mode(event.size, pygame.RESIZABLE)
+                    g.redraw = True
                 elif event.type == pygame.MOUSEMOTION:
                     g.pos = event.pos
                     g.redraw = True
@@ -245,7 +240,6 @@ class Letters:
                             bu = buttons.check()
                             if bu != '':
                                 self.do_button(bu)
-                                self.flush_queue()
                     if not self.sugar and event.button == 3:
                         g.help_on = True
                         buttons.off('help')
@@ -253,25 +247,10 @@ class Letters:
                     if not self.sugar and event.key not in g.CIRCLE:
                         g.help_on = False
                         buttons.on('help')
-                    # throttle keyboard repeat
-                    if pygame.time.get_ticks() - key_ms > 110:
-                        key_ms = pygame.time.get_ticks()
-                        if ctrl:
-                            if event.key == pygame.K_q:
-                                if not self.journal:
-                                    utils.save()
-                                going = False
-                                break
-                            else:
-                                ctrl = False
-                        if event.key in (pygame.K_LCTRL, pygame.K_RCTRL):
-                            ctrl = True
-                            break
-                        self.do_key(event.key)
-                        g.redraw = True
-                        self.flush_queue()
+                    self.do_key(event.key)
+                    g.redraw = True
                 elif event.type == pygame.KEYUP:
-                    ctrl = False
+                    pass
             if not going:
                 break
 
