@@ -57,18 +57,21 @@ class PeterActivity(activity.Activity):
         cyan = ToolButton('media-playback-start')
         toolbox.toolbar.insert(cyan, -1)
         cyan.set_tooltip(_('Play'))
+        cyan.set_accelerator('space')
         cyan.connect('clicked', self._button_cb, 'new')
         cyan.show()
 
         tick = ToolButton('dialog-ok')
         toolbox.toolbar.insert(tick, -1)
         tick.set_tooltip(_('Accept'))
+        tick.set_accelerator('Return')
         tick.connect('clicked', self._button_cb, 'tick')
         tick.show()
 
         back = ToolButton('dialog-cancel')
         toolbox.toolbar.insert(back, -1)
         back.set_tooltip(_('Back'))
+        back.set_accelerator('Up')
         back.connect('clicked', self._button_cb, 'back')
         back.show()
 
