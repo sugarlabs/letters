@@ -21,6 +21,7 @@ ver = '22'
 # error message does not persist where it shouldn't
 ver = '23'
 # circle key toggles help
+ver = '27'
 
 UP = (264, 273)
 DOWN = (258, 274)
