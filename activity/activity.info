@@ -7,3 +7,4 @@ icon = activity
 exec = sugar-activity activity.PeterActivity
 summary = Spell words from a group of random letters.
 tags = English;Language;Game
+repository = https://github.com/sugarlabs/letters
