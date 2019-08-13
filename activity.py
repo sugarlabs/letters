@@ -128,8 +128,6 @@ class PeterActivity(activity.Activity):
                                  Gdk.Screen.height() - GRID_CELL_SIZE),
                                 pygame.RESIZABLE)
 
-        self.game.run(restore=True)
-
     def _button_cb(self, button=None, color=None):
         self.game.do_button(color)
 
