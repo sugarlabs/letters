@@ -1,6 +1,6 @@
 [Activity]
 name = Letters
-activity_version = 27
+activity_version = 28
 license = GPLv3+
 bundle_id = mulawa.Letters
 icon = activity

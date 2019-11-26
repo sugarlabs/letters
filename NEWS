@@ -1,3 +1,9 @@
+28
+
+* Port to Python 3 (James Cameron),
+* Update Sugargame (Ibiam Chihurumnaya),
+* Fix recursion on display resize (Swarup N),
+
 27
 
 * Faster response to keys and letters (James Cameron),
