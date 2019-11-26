@@ -173,7 +173,7 @@ class Translator(object):
             ukey = chr(Gdk.keyval_to_unicode(event.keyval))
             if ukey == '\000':
                 ukey = ''
-            evt = pygame.event.Event(type, key=keycode, unicode=ukey, mod=mod)
+            evt = pygame.event.Event(type, key=keycode, str=ukey, mod=mod)
             self._post(evt)
 
         return True

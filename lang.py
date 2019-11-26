@@ -32,12 +32,12 @@ def check_word(w):
             return False
         filehandle[l] = f
     p1 = 0
-    p2 = int(os.path.getsize(fname) / (l + 2))
+    p2 = int(os.path.getsize(fname) // (l + 2))
     w0 = w.lower()
     while True:
         q1 = p1
         q2 = p2
-        p = int((p1 + p2) / 2)
+        p = int((p1 + p2) // 2)
         f.seek(p * (l + 2))
         w1 = f.read(l)
         if w0 == w1:

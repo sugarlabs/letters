@@ -113,8 +113,8 @@ class Let:
         g.pos = (x, y)
 
     def reset_mouse(self):
-        self.x = self.x0 + self.w / 2
-        self.y = self.y0 + self.h / 2
+        self.x = self.x0 + self.w // 2
+        self.y = self.y0 + self.h // 2
         self.ind = 0
         self.set_mouse()
 
@@ -150,7 +150,7 @@ class Let:
     def move_left(self):
         if self.ind == 0:
             self.ind = 8
-            self.x = self.x0 + self.w / 2 + 8 * self.w
+            self.x = self.x0 + self.w // 2 + 8 * self.w
         self.ind -= 1
         self.x -= self.w
 

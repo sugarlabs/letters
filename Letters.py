@@ -266,6 +266,7 @@ class Letters:
                 g.redraw = False
             g.clock.tick(40)
 
+
 if __name__ == "__main__":
     pygame.init()
     pygame.display.set_mode((1024, 768), pygame.FULLSCREEN)

@@ -17,7 +17,8 @@ import utils
 class Button:
     _instances = []
 
-    def __init__(self, name, (x1, y1), centre=True):  # eg ('plus',(30,40))
+    def __init__(self, name, here, centre=True):  # eg ('plus',(30,40))
+        (x1, y1) = here
         self._instances.append(self)
         up = utils.load_image(name + "_up.png", True)
         down = utils.load_image(name + "_down.png", True)
@@ -28,11 +29,11 @@ class Button:
         if centre:
             self.cx = x
             self.cy = y
-            x = x - w / 2
-            y = y - h / 2
+            x = x - w // 2
+            y = y - h // 2
         else:
-            self.cx = x + w / 2
-            self.cy = y + h / 2
+            self.cx = x + w // 2
+            self.cy = y + h // 2
         self.rect = pygame.Rect(x, y, w, h)
         self.name = name
         self.x = x
@@ -113,7 +114,7 @@ def mouse_on(name):
 
 
 def set_mouse(name):
-    p2 = g.pointer.get_height() / 2
+    p2 = g.pointer.get_height() // 2
     for b in Button._instances:
         if b.name == name:
             x = b.cx

@@ -86,7 +86,7 @@ def load_image(file1, alpha=False, subdir=''):  # eg subdir = 'glow'
     try:
         img = pygame.image.load(fname)
     except:
-        print "Peter says: Can't find " + fname
+        print("Peter says: Can't find " + fname)
         exit()
     if alpha:
         img = img.convert_alpha()
@@ -122,15 +122,18 @@ def shuffle(lst):
     return lt
 
 
-def centre_blit(screen, img, (cx, cy), angle=0):  # rotation is clockwise
+def centre_blit(screen, img, here, angle=0):  # rotation is clockwise
+    (cx, cy) = here
     img1 = img
     if angle != 0:
         img1 = pygame.transform.rotate(img, -angle)
     rect = img1.get_rect()
-    screen.blit(img1, (cx - rect.width / 2, cy - rect.height / 2))
+    screen.blit(img1, (cx - rect.width // 2, cy - rect.height // 2))
 
 
-def text_blit(screen, s, font, (cx, cy), (r, g, b), shadow=True):
+def text_blit(screen, s, font, here, rgb, shadow=True):
+    (cx, cy) = here
+    (r, g, b) = rgb
     if shadow:
         text = font.render(s, True, (0, 0, 0))
         rect = text.get_rect()
@@ -145,7 +148,9 @@ def text_blit(screen, s, font, (cx, cy), (r, g, b), shadow=True):
     return rect
 
 
-def text_blit1(screen, s, font, (x, y), (r, g, b), shadow=True):
+def text_blit1(screen, s, font, here, rgb, shadow=True):
+    (x, y) = here
+    (r, g, b) = rgb
     if shadow:
         text = font.render(s, True, (0, 0, 0))
         rect = text.get_rect()
@@ -162,16 +167,17 @@ def text_blit1(screen, s, font, (x, y), (r, g, b), shadow=True):
 # m is the message
 # d is the # of pixels in the border around the text
 # (cx, cy)  =  coords centre - (0, 0) means use screen centre
-def message(screen, font, m, (cx, cy)=(0, 0), d=20):
+def message(screen, font, m, here=(0, 0), d=20):
+    (cx, cy) = here
     if m != '':
         if pygame.font:
             text = font.render(m, True, (255, 255, 255))
             shadow = font.render(m, True, (0, 0, 0))
             rect = text.get_rect()
             if cx == 0:
-                cx = screen.get_width() / 2
+                cx = screen.get_width() // 2
             if cy == 0:
-                cy = screen.get_height() / 2
+                cy = screen.get_height() // 2
             rect.centerx = cx
             rect.centery = cy
             bgd = pygame.Surface((rect.width + 2 * d, rect.height + 2 * d))
@@ -183,7 +189,8 @@ def message(screen, font, m, (cx, cy)=(0, 0), d=20):
             screen.blit(text, rect)
 
 
-def mouse_on_img(img, (x, y)):  # x, y = top left
+def mouse_on_img(img, here):  # x, y = top left
+    (x, y) = here
     w = img.get_width()
     h = img.get_height()
     mx, my = g.pos
@@ -204,14 +211,16 @@ def mouse_on_img(img, (x, y)):  # x, y = top left
     return True
 
 
-def mouse_on_img1(img, (cx, cy)):
+def mouse_on_img1(img, here):
+    (cx, cy) = here
     xy = centre_to_top_left(img, (cx, cy))
     return mouse_on_img(img, xy)
 
 
-def mouse_on_img_rect(img, (cx, cy)):
-    w2 = img.get_width() / 2
-    h2 = img.get_height() / 2
+def mouse_on_img_rect(img, here):
+    (cx, cy) = here
+    w2 = img.get_width() // 2
+    h2 = img.get_height() // 2
     x1 = cx - w2
     y1 = cy - h2
     x2 = cx + w2
@@ -248,11 +257,12 @@ def display_score():
                          (x - d - g.sy(.05), y - d, w + 2 * d, h + 2 * d))
         g.screen.blit(text, (x, y))
         centre_blit(g.screen, g.sparkle,
-                    (x - d + g.sy(.05), y + h / 2 - g.sy(.2)))
+                    (x - d + g.sy(.05), y + h // 2 - g.sy(.2)))
 
 
-def display_number(n, (cx, cy), font, colour=BLACK, bgd=None,
+def display_number(n, here, font, colour=BLACK, bgd=None,
                    outline_font=None):
+    (cx, cy) = here
     if pygame.font:
         if bgd is None:
             text = font.render(str(n), True, colour)
@@ -264,20 +274,23 @@ def display_number(n, (cx, cy), font, colour=BLACK, bgd=None,
         centre_blit(g.screen, text, (cx, cy))
 
 
-def display_number1(n, (x, cy), font, colour=BLACK):
+def display_number1(n, here, font, colour=BLACK):
+    (x, cy) = here
     if pygame.font:
         text = font.render(str(n), True, colour)
-        y = cy - text.get_height() / 2
+        y = cy - text.get_height() // 2
         g.screen.blit(text, (x, y))
 
 
-def top_left_to_centre(img, (x, y)):
-    cx = x + img.get_width() / 2
-    cy = y + img.get_height() / 2
+def top_left_to_centre(img, here):
+    (x, y) = here
+    cx = x + img.get_width() // 2
+    cy = y + img.get_height() // 2
     return (cx, cy)
 
 
-def centre_to_top_left(img, (cx, cy)):
-    x = cx - img.get_width() / 2
-    y = cy - img.get_height() / 2
+def centre_to_top_left(img, here):
+    (cx, cy) = here
+    x = cx - img.get_width() // 2
+    y = cy - img.get_height() // 2
     return (x, y)

@@ -3,7 +3,7 @@ from gi.repository import Gtk
 from gi.repository import GLib
 from sugar3.activity.activity import PREVIEW_SIZE
 import pygame
-import sugargame.event as event
+from . import event
 
 CANVAS = None
 

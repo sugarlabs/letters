@@ -54,7 +54,7 @@ def init():  # called by run()
     pygame.display.flip()
     w, h = screen.get_size()
     if float(w) / float(h) > 1.5:  # widescreen
-        offset = (w - 4 * h / 3) / 2  # we assume 4:3 - centre on widescreen
+        offset = (w - 4 * h // 3) // 2  # we assume 4:3 - centre on widescreen
     else:
         h = int(.75 * w)  # allow for toolbar - works to 4:3
         offset = 0
